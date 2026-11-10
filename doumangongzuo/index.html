@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>抖漫工作室 - 原创短剧与动画内容聚合</title>
+  <meta name="description" content="抖漫工作室专注原创短剧、动态漫画与轻动画内容，汇聚《异能管理局》《反派他过分可爱》等热门作品，提供最新更新、深度解析、分类导航与社区评论，适合短剧爱好者与动画迷浏览。">
+  <meta name="keywords" content="原创短剧,动态漫画,轻动画,短剧推荐,动画更新">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f2b4c'/%3E%3Cpath d='M8 10h6v4H8zm10 0h6v4h-6zM8 18h6v4H8zm10 0h6v4h-6z' fill='%23f7d44a'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg-page: #f8f7f4;
+      --bg-panel: #ffffff;
+      --bg-soft: #f2efe9;
+      --ink-primary: #1e1e2a;
+      --ink-secondary: #4e4e5e;
+      --ink-tertiary: #7a7a8a;
+      --brand-deep: #1f2b4c;
+      --brand-accent: #f7d44a;
+      --brand-warm: #e85d4a;
+      --border-light: #e5e2db;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.06);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --max-width: 1280px;
+      --header-height: 64px;
+      --announce-height: 44px;
+      --sticky-offset: calc(var(--announce-height) + var(--header-height));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-padding-top: var(--sticky-offset);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      color: var(--ink-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-top: var(--sticky-offset);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 吸顶公告条 */
+    .announce-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--announce-height);
+      background-color: var(--brand-deep);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      z-index: 100;
+    }
+
+    .announce-bar span {
+      opacity: 0.9;
+    }
+
+    .announce-bar strong {
+      color: var(--brand-accent);
+      margin: 0 6px;
+    }
+
+    /* 吸顶页头 */
+    .site-header {
+      position: fixed;
+      top: var(--announce-height);
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      z-index: 99;
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .brand-text {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--brand-deep);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .main-nav a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .main-nav a:hover {
+      color: var(--brand-deep);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--bg-soft);
+      border-radius: 40px;
+      padding: 4px 12px;
+      border: 1px solid transparent;
+      transition: border 0.2s;
+    }
+
+    .search-box:focus-within {
+      border-color: var(--brand-deep);
+      background: #fff;
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      padding: 6px 8px;
+      font-size: 0.85rem;
+      width: 160px;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .search-box button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      color: var(--ink-secondary);
+    }
+
+    .search-box button svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .search-feedback {
+      font-size: 0.75rem;
+      color: var(--brand-warm);
+      margin-left: 8px;
+      display: none;
+      white-space: nowrap;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border-light);
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--brand-deep);
+      color: var(--brand-deep);
+    }
+
+    /* 主容器 */
+    .page-wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 24px 48px;
+    }
+
+    /* 首屏 */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      background: var(--bg-panel);
+      border-radius: var(--radius-lg);
+      padding: 40px 48px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--brand-deep);
+      margin-bottom: 16px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--ink-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--brand-deep);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #2a3a66;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--brand-deep);
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid var(--brand-deep);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background: var(--brand-deep);
+      color: #fff;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-visual svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      filter: drop-shadow(0 8px 24px rgba(31, 43, 76, 0.12));
+    }
+
+    /* 双栏布局 */
+    .layout-two-col {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: sticky;
+      top: calc(var(--sticky-offset) + 16px);
+    }
+
+    /* 通用板块 */
+    .section {
+      background: var(--bg-panel);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--brand-deep);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title small {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--ink-tertiary);
+    }
+
+    .overview-text {
+      font-size: 0.95rem;
+      color: var(--ink-secondary);
+      line-height: 1.8;
+    }
+
+    .overview-text p {
+      margin-bottom: 12px;
+    }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .content-card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .content-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-light);
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #ddd;
+    }
+
+    .card-body {
+      padding: 12px 14px 14px;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      background: #e6e2d8;
+      color: var(--ink-secondary);
+      font-size: 0.65rem;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .card-desc {
+      font-size: 0.78rem;
+      color: var(--ink-tertiary);
+      line-height: 1.5;
+      margin-bottom: 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--ink-tertiary);
+    }
+
+    .card-meta span:first-child {
+      color: var(--brand-warm);
+      font-weight: 600;
+    }
+
+    /* 紧凑列表 */
+    .compact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .compact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .compact-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-index {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ccc;
+      min-width: 24px;
+      line-height: 1.4;
+    }
+
+    .item-content {
+      flex: 1;
+    }
+
+    .item-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      margin-bottom: 2px;
+    }
+
+    .item-desc {
+      font-size: 0.78rem;
+      color: var(--ink-tertiary);
+      line-height: 1.5;
+    }
+
+    .item-meta {
+      font-size: 0.7rem;
+      color: var(--ink-tertiary);
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .category-pill {
+      background: var(--bg-soft);
+      padding: 10px 12px;
+      border-radius: 40px;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .category-pill:hover {
+      background: var(--brand-deep);
+      color: #fff;
+      border-color: var(--brand-deep);
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      font-size: 0.92rem;
+      color: var(--ink-secondary);
+      line-height: 1.8;
+    }
+
+    .deep-dive h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin: 20px 0 8px;
+    }
+
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .deep-dive ul {
+      padding-left: 20px;
+      margin: 8px 0 16px;
+    }
+
+    .deep-dive li {
+      margin-bottom: 6px;
+    }
+
+    .deep-dive p {
+      margin-bottom: 12px;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq-list details {
+      background: var(--bg-soft);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      border: 1px solid var(--border-light);
+    }
+
+    .faq-list summary {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--ink-primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-list summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-list summary::after {
+      content: '+';
+      font-size: 1.2rem;
+      color: var(--ink-tertiary);
+      font-weight: 400;
+    }
+
+    .faq-list details[open] summary::after {
+      content: '−';
+    }
+
+    .faq-list details p {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--ink-secondary);
+      line-height: 1.7;
+    }
+
+    /* 评论 */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 12px;
+      font-size: 0.85rem;
+    }
+
+    .comment-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--brand-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--brand-deep);
+      flex-shrink: 0;
+    }
+
+    .comment-body {
+      flex: 1;
+    }
+
+    .comment-nick {
+      font-weight: 600;
+      color: var(--ink-primary);
+      margin-bottom: 2px;
+    }
+
+    .comment-text {
+      color: var(--ink-secondary);
+      line-height: 1.6;
+    }
+
+    .comment-date {
+      font-size: 0.7rem;
+      color: var(--ink-tertiary);
+      margin-top: 2px;
+    }
+
+    /* 相关资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .news-img {
+      width: 100px;
+      height: 68px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .news-content {
+      flex: 1;
+    }
+
+    .news-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      margin-bottom: 4px;
+    }
+
+    .news-date {
+      font-size: 0.7rem;
+      color: var(--ink-tertiary);
+      margin-bottom: 2px;
+    }
+
+    .news-summary {
+      font-size: 0.78rem;
+      color: var(--ink-tertiary);
+      line-height: 1.5;
+    }
+
+    /* 相关推荐标签 */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag-cloud a {
+      background: var(--bg-soft);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: var(--ink-secondary);
+      transition: all 0.2s;
+      border: 1px solid var(--border-light);
+    }
+
+    .tag-cloud a:hover {
+      background: var(--brand-deep);
+      color: #fff;
+      border-color: var(--brand-deep);
+    }
+
+    /* 排行榜 */
+    .rank-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .rank-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border-light);
+    }
+
+    .rank-item:last-child {
+      border-bottom: none;
+    }
+
+    .rank-num {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--brand-accent);
+      min-width: 28px;
+      text-align: center;
+    }
+
+    .rank-info {
+      flex: 1;
+    }
+
+    .rank-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+    }
+
+    .rank-score {
+      font-size: 0.75rem;
+      color: var(--brand-warm);
+      font-weight: 600;
+    }
+
+    /* 页尾 */
+    .site-footer {
+      background: var(--brand-deep);
+      color: #fff;
+      margin-top: 48px;
+      padding: 40px 24px 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+    }
+
+    .footer-brand .brand-text {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--brand-accent);
+      letter-spacing: 0.02em;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 24px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-align: center;
+    }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .layout-two-col {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 32px;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+      .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 740px) {
+      .page-wrapper {
+        padding: 16px;
+      }
+      .header-inner {
+        padding: 0 16px;
+        flex-wrap: wrap;
+      }
+      .main-nav {
+        display: none;
+      }
+      .search-box input {
+        width: 100px;
+      }
+      .hero {
+        padding: 24px;
+      }
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .news-item {
+        flex-direction: column;
+      }
+      .news-img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+      .section {
+        padding: 18px 16px;
+      }
+      .comment-item {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+  <!-- 吸顶公告条 -->
+  <div class="announce-bar">
+    <span><strong>本周新增</strong>《异能管理局》第 8 集、《反派他过分可爱》番外篇等 <strong>12 条</strong>内容</span>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/#hero" class="brand" aria-label="抖漫工作室首页">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#1f2b4c"/>
+          <path d="M8 10h6v4H8zm10 0h6v4h-6zM8 18h6v4H8zm10 0h6v4h-6z" fill="#f7d44a"/>
+        </svg>
+        <span class="brand-text">抖漫工作室</span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#featured">精选作品</a>
+        <a href="/#updates">最新更新</a>
+        <a href="/#categories">分类入口</a>
+        <a href="/#deep-dive">深度解析</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#comments">用户评论</a>
+        <a href="/#news">相关资讯</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="搜索作品或类型" aria-label="搜索作品或类型">
+          <button id="searchBtn" aria-label="搜索">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <span class="search-feedback" id="searchFeedback">无结果</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 页面主体 -->
+  <div class="page-wrapper">
+    <!-- 首屏 -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h1>抖漫工作室</h1>
+        <p class="hero-desc">
+          聚焦原创短剧、动态漫画与轻动画的内容聚合地。这里汇集了《异能管理局》《反派他过分可爱》《她与她的猫》等热门连载，以及幕后创作访谈、类型深度解析和社区真实讨论，适合短剧爱好者与动画迷按类型、更新节奏和口碑快速找到想看的作品。
+        </p>
+        <div class="hero-actions">
+          <a href="/#featured" class="btn-primary">浏览精选作品</a>
+          <a href="/#updates" class="btn-secondary">查看最新更新</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="40" width="160" height="200" rx="12" fill="#1f2b4c" opacity="0.9"/>
+          <rect x="200" y="60" width="180" height="120" rx="12" fill="#f7d44a" opacity="0.85"/>
+          <rect x="200" y="200" width="180" height="60" rx="12" fill="#e85d4a" opacity="0.7"/>
+          <circle cx="100" cy="120" r="30" fill="#f7d44a" opacity="0.5"/>
+          <circle cx="280" cy="120" r="20" fill="#1f2b4c" opacity="0.3"/>
+          <path d="M60 200 L100 160 L140 200" stroke="#fff" stroke-width="3" fill="none" opacity="0.6"/>
+          <rect x="240" y="220" width="100" height="8" rx="4" fill="#1f2b4c" opacity="0.3"/>
+          <rect x="240" y="238" width="80" height="8" rx="4" fill="#1f2b4c" opacity="0.2"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 双栏布局 -->
+    <div class="layout-two-col">
+      <!-- 主内容 -->
+      <main class="main-content">
+        <!-- 1. 主题领域概览 -->
+        <section class="section" id="overview">
+          <h2 class="section-title">原创短剧与动态漫画领域概览</h2>
+          <div class="overview-text">
+            <p>抖漫工作室所代表的原创短剧与动态漫画领域，在 2026 年已形成几条清晰的创作脉络：一是以《异能管理局》为代表的都市异能群像短剧，单集 5—8 分钟，节奏快、反转密集；二是以《反派他过分可爱》为代表的穿书甜宠轻动画，主打角色反差和日常互动；三是以《她与她的猫》为代表的治愈系动态漫画，用静态分镜加局部动效讲述慢节奏故事。这三类内容在更新频率、单集时长和受众画像上有明显差异。</p>
+            <p>从当前内容供给看，工作室每周稳定更新 6—8 部连载，其中周三、周五、周日为集中更新日。短剧类通常以季为单位，每季 12—16 集；动态漫画则以卷更新，每卷 20—30 话。观众在选择时，除了关注题材标签，还可以参考单集时长、更新稳定性和评论区反馈来判断是否适合追更。例如《异能管理局》第二季第 8 集在 11 月 5 日上线后，社区讨论集中在“能力设定是否平衡”上，这类讨论往往能反映作品的实际观看体验。</p>
+            <p>此外，工作室在 2026 年新增了“创作者手记”栏目，每两周发布一篇幕后制作访谈，内容涉及分镜设计、配音选角和剧本调整。这些材料对于想了解动态漫画制作流程的观众来说，是比正片更具体的参考。整体来看，这个领域的内容消费已经从“追单部”向“按类型和更新节奏组合观看”迁移，观众更倾向于同时追 2—3 部不同节奏的作品。</p>
+          </div>
+        </section>
+
+        <!-- 2. 精选内容推荐 -->
+        <section class="section" id="featured">
+          <h2 class="section-title">精选内容推荐 <small>6 部当前可看</small></h2>
+          <div class="card-grid">
+            <div class="content-card" data-title="异能管理局">
+              <img class="card-img" src="https://picsum.photos/seed/douman-yineng01/400/300" alt="异能管理局短剧封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-title">异能管理局</div>
+                <div class="card-tags"><span class="tag">都市异能</span><span class="tag">群像</span><span class="tag">悬疑</span></div>
+                <div class="card-desc">特调局新人卷入连环异能失控事件，每集一个能力案件，主线暗藏管理局内部权力斗争。</div>
+                <div class="card-meta"><span>热度 9862</span><span>更新至 8 集</span></div>
+              </div>
+            </div>
+            <div class="content-card" data-title="反派他过分可爱">
+              <img class="card-img" src="https://picsum.photos/seed/douman-fanpai02/400/300" alt="反派他过分可爱动画封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-title">反派他过分可爱</div>
+                <div class="card-tags"><span class="tag">穿书</span><span class="tag">甜宠</span><span class="tag">轻动画</span></div>
+                <div class="card-desc">社畜穿成虐文反派，为了活命疯狂撮合男主女主，结果男主看她的眼神越来越不对。</div>
+                <div class="card-meta"><span>热度 8754</span><span>更新至 12 话</span></div>
+              </div>
+            </div>
+            <div class="content-card" data-title="她与她的猫">
+              <img class="card-img" src="https://picsum.photos/seed/douman-cat03/400/300" alt="她与她的猫动态漫画封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-title">她与她的猫</div>
+                <div class="card-tags"><span class="tag">治愈</span><span class="tag">日常</span><span class="tag">动态漫画</span></div>
+                <div class="card-desc">独居插画师和一只会说话的橘猫的慢生活，每话围绕一个生活小物件展开，节奏舒缓。</div>
+                <div class="card-meta"><span>热度 6210</span><span>更新至 20 话</span></div>
+              </div>
+            </div>
+            <div class="content-card" data-title="深夜食堂异闻录">
+              <img class="card-img" src="https://picsum.photos/seed/douman-food04/400/300" alt="深夜食堂异闻录短剧封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-title">深夜食堂异闻录</div>
+                <div class="card-tags"><span class="tag">奇幻</span><span class="tag">单元剧</span><span class="tag">美食</span></div>
+                <div class="card-desc">一家只在午夜开门的食堂，每位客人的故事都对应一道菜，吃完后烦恼会暂时消失。</div>
+                <div class="card-meta"><span>热度 7433</span><span>更新至 6 集</span></div>
+              </div>
+            </div>
+            <div class="content-card" data-title="机甲学院模拟战">
+              <img class="card-img" src="https://picsum.photos/seed/douman-mecha05/400/300" alt="机甲学院模拟战动画封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-title">机甲学院模拟战</div>
+                <div class="card-tags"><span class="tag">科幻</span><span class="tag">竞技</span><span class="tag">热血</span></div>
+                <div class="card-desc">机甲驾驶系吊车尾学生靠战术思维逆袭，模拟战每集一场，侧重团队配合和临场决策。</div>
+                <div class="card-meta"><span>热度 8106</span><span>更新至 9 集</span></div>
+              </div>
+            </div>
+            <div class="content-card" data-title="我的室友是妖怪">
+              <img class="card-img" src="https://picsum.photos/seed/douman-yaoguai06/400/300" alt="我的室友是妖怪轻动画封面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-title">我的室友是妖怪</div>
+                <div class="card-tags"><span class="tag">喜剧</span><span class="tag">合租</span><span class="tag">妖怪</span></div>
+                <div class="card-desc">普通上班族合租到一只失忆的九尾狐，日常既要帮它藏尾巴又要应付房东查房。</div>
+                <div class="card-meta"><span>热度 5530</span><span>更新至 15 话</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. 最新更新 / 动态 -->
+        <section class="section" id="updates">
+          <h2 class="section-title">最新更新与动态 <small>2026-11-08 前</small></h2>
+          <div class="compact-list">
+            <div class="compact-item">
+              <div class="item-index">01</div>
+              <div class="item-content">
+                <div class="item-title">《异能管理局》第 8 集上线</div>
+                <div class="item-desc">新能力“记忆回溯”出现失控案例，陈默与林队首次正面冲突。</div>
+              </div>
+              <div class="item-meta">今天 10:00</div>
+            </div>
+            <div class="compact-item">
+              <div class="item-index">02</div>
+              <div class="item-content">
+                <div class="item-title">《反派他过分可爱》番外篇更新</div>
+                <div class="item-desc">以男主视角重述第 9 话的晚宴场景，补充了原作未展示的心理活动。</div>
+              </div>
+              <div class="item-meta">今天 09:30</div>
+            </div>
+            <div class="compact-item">
+              <div class="item-index">03</div>
+              <div class="item-content">
+                <div class="item-title">《她与她的猫》第 20 话更新</div>
+                <div class="item-desc">橘猫第一次开口讲自己的过去，画风转为水彩回忆色调。</div>
+              </div>
+              <div class="item-meta">昨天 21:10</div>
+            </div>
+            <div class="compact-item">
+              <div class="item-index">04</div>
+              <div class="item-content">
+                <div class="item-title">《深夜食堂异闻录》第 6 集上线</div>
+                <div class="item-desc">本集客人是位失忆的老人，招牌菜“记忆拉面”引出关于遗忘的讨论。</div>
+              </div>
+              <div class="item-meta">11 月 6 日</div>
+            </div>
+            <div class="compact-item">
+              <div class="item-index">05</div>
+              <div class="item-content">
+                <div class="item-title">《机甲学院模拟战》第 9 集更新</div>
+                <div class="item-desc">主角队遭遇三连败后调整战术，本集着重刻画替补队员的成长。</div>
+              </div>
+              <div class="item-meta">11 月 5 日</div>
+            </div>
+            <div class="compact-item">
+              <div class="item-index">06</div>
+              <div class="item-content">
+                <div class="item-title">创作者手记：动态漫画分镜的节奏控制</div>
+                <div class="item-desc">《她与她的猫》分镜师分享如何用静帧时长传递情绪，附 4 个案例对比。</div>
+              </div>
+              <div class="item-meta">11 月 3 日</div>
+            </div>
+            <div class="compact-item">
+              <div class="item-index">07</div>
+              <div class="item-content">
+                <div class="item-title">《我的室友是妖怪》第 15 话更新</div>
+                <div class="item-desc">九尾狐恢复部分记忆，想起自己来人间是为了找一个人，但记不清是谁。</div>
+              </div>
+              <div class="item-meta">11 月 2 日</div>
+            </div>
+            <div class="compact-item">
+              <div class="item-index">08</div>
+              <div class="item-content">
+                <div class="item-title">《异能管理局》第二季原声带上线</div>
+                <div class="item-desc">包含 12 首配乐和 3 段角色主题旋律，可在作品详情页试听。</div>
+              </div>
+              <div class="item-meta">11 月 1 日</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. 分类入口 -->
+        <section class="section" id="categories">
+          <h2 class="section-title">按类型浏览</h2>
+          <div class="category-grid">
+            <a href="/#featured" class="category-pill">都市异能</a>
+            <a href="/#featured" class="category-pill">穿书甜宠</a>
+            <a href="/#featured" class="category-pill">治愈日常</a>
+            <a href="/#featured" class="category-pill">奇幻单元</a>
+            <a href="/#featured" class="category-pill">科幻竞技</a>
+            <a href="/#featured" class="category-pill">喜剧合租</a>
+            <a href="/#featured" class="category-pill">悬疑推理</a>
+            <a href="/#featured" class="category-pill">幕后手记</a>
+          </div>
+        </section>
+
+        <!-- 5. 深度解析正文 -->
+        <section class="section" id="deep-dive">
+          <h2 class="section-title">短剧与动态漫画类型差异解析</h2>
+          <div class="deep-dive">
+            <p>在抖漫工作室的内容矩阵中，短剧、轻动画和动态漫画虽然都归在“原创内容”下，但三者的观看逻辑和评判标准并不相同。了解这些差异，能帮助观众更快判断一部作品是否适合自己的时间安排和口味偏好。</p>
+            <h3>短剧：强节奏与钩子密度</h3>
+            <p>短剧单集时长通常在 5—8 分钟，结构上要求前 30 秒内建立冲突，每集结尾留一个悬念钩子。《异能管理局》是典型的短剧结构：每集一个独立能力案件，同时用一条贯穿主线串联。判断一部短剧是否值得追，可以看前两集是否在单元故事和主线之间取得了平衡——如果单元案件过于简单，主线推进又太慢，追更动力就会下降。另外，短剧的更新稳定性很重要，因为单集时长短，断更一两周很容易让观众遗忘剧情。</p>
+            <h3>轻动画：角色关系与日常质感</h3>
+            <p>轻动画介于动态漫画和传统动画之间，保留较多静态画面，但关键动作和表情有流畅动效。《反派他过分可爱》属于这一类，它的看点不在剧情复杂度，而在角色互动细节——比如男主每次别扭时的耳朵抖动、女主内心吐槽的字体变化。看轻动画时，可以重点关注配音和音效的配合，因为轻动画的画面信息量有限，声音承担了很大一部分情绪传递。如果一部轻动画的配音出戏，观感会明显打折扣。</p>
+            <h3>动态漫画：氛围与分镜叙事</h3>
+            <p>动态漫画以静态分镜为主，通过局部动效、镜头推移和音效营造氛围。《她与她的猫》是代表，每话围绕一个生活场景展开，比如“下雨天”“旧毛衣”“深夜便利店”。这类作品适合在碎片时间慢慢看，不需要连续追更。判断动态漫画的质量，可以看分镜的呼吸感——好的动态漫画会让静帧停留足够长的时间，让读者消化画面中的信息，而不是快速切过。另外，动态漫画的卷更新节奏较慢，适合不急于追更的观众。</p>
+            <h3>按更新节奏组合观看</h3>
+            <p>由于三类内容的更新频率不同，比较高效的观看组合是：追一部短剧（每周 2—3 集）加一部轻动画（每周 1 话），再搭配一部动态漫画（每两周一卷）。这样每周都有新内容可看，又不会因为集中追更而产生疲劳。如果时间有限，优先选择短剧，因为单集时间短、信息密度高；如果偏好轻松陪伴感，轻动画和动态漫画更合适。</p>
+          </div>
+        </section>
+
+        <!-- 6. 体验指南 -->
+        <section class="section" id="guide">
+          <h2 class="section-title">观看与选择路径</h2>
+          <div class="deep-dive">
+            <p>第一次接触这个领域，可以从“先定节奏，再选题材”的顺序入手。具体判断依据如下：</p>
+            <ul>
+              <li><strong>先看单集时长：</strong>5—8 分钟适合通勤或午休；10—15 分钟适合晚上放松；动态漫画单话阅读时间约 3—5 分钟，适合碎片时间。</li>
+              <li><strong>再看更新稳定性：</strong>短剧通常每周固定 2—3 集，轻动画每周 1 话，动态漫画每两周一卷。如果某个作品连续三周没有更新，可能需要调整追更预期。</li>
+              <li><strong>比较同类作品的口碑：</strong>在评论区搜索“节奏”“人设”“作画”等具体词，比只看总评分更能判断作品是否符合自己的偏好。例如《异能管理局》的讨论多集中在能力设定逻辑上，《反派他过分可爱》则集中在角色互动细节上。</li>
+              <li><strong>用类型标签做初筛：</strong>都市异能、穿书甜宠、治愈日常、科幻竞技等标签直接对应内容方向，先选 1—2 个感兴趣的标签，再从中挑更新最接近当下的作品。</li>
+            </ul>
+            <p>如果对制作过程感兴趣，可以配合“创作者手记”一起看。手记中会提到某集的分镜修改原因或配音试音过程，这些信息能帮助观众理解正片中某些处理方式的用意，也让观看体验更有层次。</p>
+          </div>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section class="section" id="faq">
+          <h2 class="section-title">常见问答</h2>
+          <div class="faq-list">
+            <details>
+              <summary>《异能管理局》一般多久更新一集？</summary>
+              <p>第一季为每周三、周日更新，第二季调整为每周三、周五更新，每集 6—8 分钟。遇到节假日会提前在公告条说明调整。</p>
+            </details>
+            <details>
+              <summary>短剧和轻动画有什么区别？</summary>
+              <p>短剧侧重剧情推进和悬念设置，单集时间短、信息密度高；轻动画保留较多静态画面，更依赖角色互动和配音表现，节奏相对舒缓。</p>
+            </details>
+            <details>
+              <summary>第一次看抖漫工作室的内容，从哪部开始比较好？</summary>
+              <p>如果喜欢快节奏，可以从《异能管理局》第 1 集开始；如果偏好轻松日常，《反派他过分可爱》或《我的室友是妖怪》更合适；如果只想碎片时间看，选《她与她的猫》每话独立，不需要前情记忆。</p>
+            </details>
+            <details>
+              <summary>动态漫画的评判标准通常是什么？</summary>
+              <p>主要看分镜节奏、静帧停留时长、局部动效是否服务于叙事，以及配音和音效的配合。好的动态漫画会让画面有“呼吸感”，而不是快速翻页。</p>
+            </details>
+            <details>
+              <summary>《反派他过分可爱》和原著小说比改动大吗？</summary>
+              <p>动画版保留了主要人物关系和关键情节，但增加了更多日常互动细节，并调整了部分配角的出场顺序。作者参与了剧本监修，改动方向以适合动画节奏为主。</p>
+            </details>
+            <details>
+              <summary>创作者手记多久更新一次？</summary>
+              <p>每两周更新一篇，通常安排在周五发布，内容为某部作品的具体制作环节拆解，偶尔附带未公开的分镜草图。</p>
+            </details>
+          </div>
+        </section>
+
+        <!-- 8. 用户评论 -->
+        <section class="section" id="comments">
+          <h2 class="section-title">用户评论 <small>12 条</small></h2>
+          <div class="comment-list">
+            <div class="comment-item">
+              <div class="comment-avatar">林</div>
+              <div class="comment-body">
+                <div class="comment-nick">林小满</div>
+                <div class="comment-text">《异能管理局》第 8 集那个记忆回溯的设定有点意思，但感觉能力上限没讲清楚，希望后面能补。</div>
+                <div class="comment-date">今天 11:02</div>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">陈</div>
+              <div class="comment-body">
+                <div class="comment-nick">陈默的领带</div>
+                <div class="comment-text">反派他过分可爱番外篇比正片还甜，男主视角的心理活动太真实了，那种纠结感配得特别好。</div>
+                <div class="comment-date">今天 10:15</div>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">橘</div>
+              <div class="comment-body">
+                <div class="comment-nick">橘猫观察员</div>
+                <div class="comment-text">她与她的猫第 20 话水彩风那段看哭了，虽然剧情很简单但情绪铺垫得很到位。</div>
+                <div class="comment-date">昨天 22:30</div>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">机</div>
+              <div class="comment-body">
+                <div class="comment-nick">机甲宅小K</div>
+                <div class="comment-text">机甲学院模拟战的战术描写比预想中扎实，第 9 集替补上场那段挺燃的，没有纯靠主角开挂。</div>
+                <div class="comment-date">11 月 7 日</div>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">深</div>
+              <div class="comment-body">
+                <div class="comment-nick">深夜食堂常客</div>
+                <div class="comment-text">深夜食堂异闻录的节奏有点慢，每集一个故事挺好的，但第 6 集结尾感觉收得有点仓促。</div>
+                <div class="comment-date">11 月 6 日</div>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">九</div>
+              <div class="comment-body">
+                <div class="comment-nick">九尾狐的尾巴</div>
+                <div class="comment-text">我的室友是妖怪第 15 话突然走主线了，前面都是日常搞笑，这集信息量好大，期待后续。</div>
+                <div class="comment-date">11 月 5 日</div>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">分</div>
+              <div class="comment-body">
+                <div class="comment-nick">分镜爱好者</div>
+                <div class="comment-text">创作者手记里讲的静帧时长控制很实用，对比了四个案例，能明显看出节奏差异。</div>
+                <div class="comment-date">11 月 4 日</div>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">追</div>
+              <div class="comment-body">
+                <div class="comment-nick">追更不睡觉</div>
+                <div class="comment-text">异能管理局第二季整体比第一季紧凑，但希望单元案件的复杂度能再上来一点，现在有点好猜。</div>
+                <div class="comment-date">11 月 3 日</div>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">甜</div>
+              <div class="comment-body">
+                <div class="comment-nick">甜宠雷达</div>
+                <div class="comment-text">反派他过分可爱第 12 话的误会桥段虽然老套但演得自然，女主内心吐槽的字幕设计加分。</div>
+                <div class="comment-date">11 月 2 日</div>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">治</div>
+              <div class="comment-body">
+                <div class="comment-nick">治愈系收藏家</div>
+                <div class="comment-text">她与她的猫每话标题都很简单，但内容有层次，第 18 话旧毛衣那篇看了两遍。</div>
+                <div class="comment-date">11 月 1 日</div>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">配</div>
+              <div class="comment-body">
+                <div class="comment-nick">配音品鉴师</div>
+                <div class="comment-text">轻动画的配音真的关键，反派那部女主声线切换很自然，日常和吐槽状态区分明显。</div>
+                <div class="comment-date">10 月 30 日</div>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">新</div>
+              <div class="comment-body">
+                <div class="comment-nick">新观众阿圆</div>
+                <div class="comment-text">刚看异能管理局第一季，想问下第二季需要补哪些前情吗？还是直接看也行？</div>
+                <div class="comment-date">10 月 28 日</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. 相关资讯 -->
+        <section class="section" id="news">
+          <h2 class="section-title">相关资讯</h2>
+          <div class="news-list">
+            <div class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/douman-news01/600/400" alt="异能管理局第二季原声带上线资讯配图" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-title">《异能管理局》第二季原声带上线，含 12 首配乐</div>
+                <div class="news-date">2026-11-01</div>
+                <div class="news-summary">原声带收录了陈默主题、林队主题以及三首案件氛围曲，可在作品详情页试听。</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/douman-news02/600/400" alt="动态漫画分镜手记发布资讯配图" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-title">创作者手记更新：动态漫画分镜的节奏控制</div>
+                <div class="news-date">2026-11-03</div>
+                <div class="news-summary">分镜师以《她与她的猫》为例，拆解静帧停留时长与情绪传递的关系。</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/douman-news03/600/400" alt="反派他过分可爱番外篇上线资讯配图" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-title">《反派他过分可爱》番外篇上线，男主视角补完晚宴剧情</div>
+                <div class="news-date">2026-11-08</div>
+                <div class="news-summary">番外篇以男主第一人称重述第 9 话晚宴场景，补充了正片中未展示的心理活动。</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/douman-news04/600/400" alt="机甲学院模拟战战术讨论升温资讯配图" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-title">《机甲学院模拟战》第 9 集引发战术讨论，社区整理三场模拟战复盘</div>
+                <div class="news-date">2026-11-05</div>
+                <div class="news-summary">观众围绕替补队员的临场决策展开讨论，有人整理了前三场模拟战的战术变化。</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/douman-news05/600/400" alt="深夜食堂异闻录单元剧结构讨论资讯配图" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-title">《深夜食堂异闻录》单元剧结构受关注，观众讨论“记忆拉面”篇</div>
+                <div class="news-date">2026-11-06</div>
+                <div class="news-summary">第 6 集播出后，关于“遗忘与告别”的讨论在评论区持续，有人对比了前五集的主题。</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/douman-news06/600/400" alt="我的室友是妖怪主线推进资讯配图" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-title">《我的室友是妖怪》第 15 话主线推进，九尾狐记忆线索浮出</div>
+                <div class="news-date">2026-11-02</div>
+                <div class="news-summary">从日常搞笑转向主线叙事，九尾狐来人间的原因首次被提及，后续走向引发猜测。</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10. 相关推荐 -->
+        <section class="section" id="related">
+          <h2 class="section-title">延伸方向与具体条目</h2>
+          <div class="tag-cloud">
+            <a href="/#featured">异能管理局能力盘点</a>
+            <a href="/#featured">穿书反派角色对比</a>
+            <a href="/#featured">治愈系动态漫画推荐</a>
+            <a href="/#featured">短剧单集结构分析</a>
+            <a href="/#featured">轻动画配音选择</a>
+            <a href="/#guide">按更新节奏组合观看</a>
+            <a href="/#deep-dive">动态漫画分镜节奏</a>
+            <a href="/#news">创作者手记合集</a>
+          </div>
+        </section>
+
+        <!-- 11. 补充板块：热门榜单 -->
+        <section class="section" id="ranking">
+          <h2 class="section-title">本周热门榜单 <small>按社区讨论热度</small></h2>
+          <div class="rank-list">
+            <div class="rank-item">
+              <div class="rank-num">1</div>
+              <div class="rank-info">
+                <div class="rank-title">异能管理局 第二季</div>
+                <div class="rank-score">热度 9862</div>
+              </div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">2</div>
+              <div class="rank-info">
+                <div class="rank-title">反派他过分可爱</div>
+                <div class="rank-score">热度 8754</div>
+              </div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">3</div>
+              <div class="rank-info">
+                <div class="rank-title">机甲学院模拟战</div>
+                <div class="rank-score">热度 8106</div>
+              </div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">4</div>
+              <div class="rank-info">
+                <div class="rank-title">深夜食堂异闻录</div>
+                <div class="rank-score">热度 7433</div>
+              </div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">5</div>
+              <div class="rank-info">
+                <div class="rank-title">她与她的猫</div>
+                <div class="rank-score">热度 6210</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- 右侧辅助栏 -->
+      <aside class="sidebar">
+        <!-- 侧栏：排行榜紧凑版 -->
+        <div class="section">
+          <h2 class="section-title" style="font-size:1.1rem;">热榜速览</h2>
+          <div class="rank-list">
+            <div class="rank-item">
+              <div class="rank-num">1</div>
+              <div class="rank-info"><div class="rank-title">异能管理局</div><div class="rank-score">9862</div></div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">2</div>
+              <div class="rank-info"><div class="rank-title">反派他过分可爱</div><div class="rank-score">8754</div></div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">3</div>
+              <div class="rank-info"><div class="rank-title">机甲学院模拟战</div><div class="rank-score">8106</div></div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">4</div>
+              <div class="rank-info"><div class="rank-title">深夜食堂异闻录</div><div class="rank-score">7433</div></div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">5</div>
+              <div class="rank-info"><div class="rank-title">她与她的猫</div><div class="rank-score">6210</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 侧栏：更新流精简 -->
+        <div class="section">
+          <h2 class="section-title" style="font-size:1.1rem;">今日更新</h2>
+          <div class="compact-list">
+            <div class="compact-item">
+              <div class="item-content">
+                <div class="item-title">异能管理局 第 8 集</div>
+                <div class="item-desc">记忆回溯失控</div>
+              </div>
+              <div class="item-meta">10:00</div>
+            </div>
+            <div class="compact-item">
+              <div class="item-content">
+                <div class="item-title">反派他过分可爱 番外</div>
+                <div class="item-desc">男主视角晚宴</div>
+              </div>
+              <div class="item-meta">09:30</div>
+            </div>
+            <div class="compact-item">
+              <div class="item-content">
+                <div class="item-title">她与她的猫 第 20 话</div>
+                <div class="item-desc">橘猫的过去</div>
+              </div>
+              <div class="item-meta">昨天</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 侧栏：分类标签 -->
+        <div class="section">
+          <h2 class="section-title" style="font-size:1.1rem;">热门标签</h2>
+          <div class="tag-cloud">
+            <a href="/#featured">都市异能</a>
+            <a href="/#featured">穿书甜宠</a>
+            <a href="/#featured">治愈日常</a>
+            <a href="/#featured">科幻竞技</a>
+            <a href="/#featured">奇幻单元</a>
+            <a href="/#featured">动态漫画</a>
+            <a href="/#featured">轻动画</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-text">抖漫工作室</div>
+        <p>原创短剧、动态漫画与轻动画的内容聚合页，按类型、更新节奏与社区口碑整理当前可看作品。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容</h4>
+        <a href="/#overview">领域概览</a>
+        <a href="/#featured">精选作品</a>
+        <a href="/#updates">最新更新</a>
+        <a href="/#deep-dive">深度解析</a>
+      </div>
+      <div class="footer-col">
+        <h4>发现</h4>
+        <a href="/#categories">分类入口</a>
+        <a href="/#guide">观看路径</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#ranking">热门榜单</a>
+      </div>
+      <div class="footer-col">
+        <h4>互动</h4>
+        <a href="/#comments">用户评论</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#related">相关推荐</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      部分内容为示例数据，仅用于展示页面结构。© 2026 抖漫工作室 内容聚合展示
+    </div>
+  </footer>
+
+  <!-- 轻量交互：搜索筛选 -->
+  <script>
+    (function() {
+      const searchInput = document.getElementById('searchInput');
+      const searchBtn = document.getElementById('searchBtn');
+      const searchFeedback = document.getElementById('searchFeedback');
+      const cards = document.querySelectorAll('.content-card');
+
+      function filterCards() {
+        const query = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const title = (card.dataset.title || '').toLowerCase();
+          const tags = Array.from(card.querySelectorAll('.tag')).map(t => t.textContent.toLowerCase()).join(' ');
+          const desc = (card.querySelector('.card-desc')?.textContent || '').toLowerCase();
+          const matches = query === '' || title.includes(query) || tags.includes(query) || desc.includes(query);
+          card.style.display = matches ? '' : 'none';
+          if (matches) visibleCount++;
+        });
+        if (query !== '' && visibleCount === 0) {
+          searchFeedback.style.display = 'inline';
+        } else {
+          searchFeedback.style.display = 'none';
+        }
+      }
+
+      if (searchBtn) {
+        searchBtn.addEventListener('click', filterCards);
+      }
+      if (searchInput) {
+        searchInput.addEventListener('keyup', function(e) {
+          if (e.key === 'Enter') filterCards();
+        });
+      }
+    })();
+  </script>
+</body>
+  </html>
