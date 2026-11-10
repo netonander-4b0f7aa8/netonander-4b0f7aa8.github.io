@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>泰剧网 - 泰剧剧集条目与追剧指南</title>
+<meta name="description" content="泰剧网汇聚泰剧剧集条目、更新动态与类型分类，涵盖同性题材、校园青春、复仇虐恋、古装奇幻等方向，提供看点解析、追剧路径与常见问题解答，适合追泰剧的观众查找与选择。">
+<meta name="keywords" content="泰剧剧集,泰腐剧,校园青春泰剧,复仇虐恋泰剧,泰剧更新">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c3b6e'/%3E%3Cpath d='M16 22h32v20H16z' fill='none' stroke='%23f4b942' stroke-width='3'/%3E%3Cpath d='M16 22l16 12 16-12' fill='none' stroke='%23f4b942' stroke-width='3'/%3E%3Ccircle cx='32' cy='46' r='3' fill='%23f4b942'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1b2431;
+  --ink-2:#3a4757;
+  --muted:#6b7a8d;
+  --line:#e2e7ee;
+  --bg:#f4f6f9;
+  --panel:#ffffff;
+  --brand:#1c3b6e;
+  --brand-2:#2a5490;
+  --gold:#e0a63c;
+  --gold-soft:#fdf3dd;
+  --rose:#b8455f;
+  --rose-soft:#fbe9ed;
+  --teal:#2b7d78;
+  --teal-soft:#e3f2f1;
+  --radius:12px;
+  --radius-sm:8px;
+  --shadow:0 1px 2px rgba(27,36,49,.06),0 6px 18px rgba(27,36,49,.06);
+  --shadow-sm:0 1px 2px rgba(27,36,49,.08);
+  --sticky-h:104px;
+  --maxw:1320px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);
+  font-size:15.5px;line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--brand-2);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0 0 .8em}
+ul,ol{margin:0 0 .8em;padding-left:1.25em}
+li{margin-bottom:.35em}
+section[id],div[id]{scroll-margin-top:calc(var(--sticky-h) + 16px)}
+
+/* 公告条 + 页头 吸顶 */
+.sticky-top{position:sticky;top:0;z-index:60}
+.notice-bar{
+  background:var(--brand);color:#e8eefb;font-size:13px;
+  display:flex;align-items:center;gap:10px;
+  padding:7px 18px;overflow-x:auto;white-space:nowrap;
+}
+.notice-bar .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none;box-shadow:0 0 0 3px rgba(224,166,60,.25)}
+.notice-bar strong{color:#fff;font-weight:600}
+.notice-bar a{color:var(--gold);font-weight:600;text-decoration:none}
+.notice-bar a:hover{text-decoration:underline}
+.site-header{
+  background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm);
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:10px 18px;
+  display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand-mark{width:38px;height:38px;flex:none}
+.brand-text{font-size:21px;font-weight:800;letter-spacing:.5px;color:var(--brand)}
+.brand-sub{font-size:11px;color:var(--muted);letter-spacing:2px;display:block;font-weight:500;line-height:1.2}
+.main-nav{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.main-nav a{
+  font-size:14px;color:var(--ink-2);padding:6px 11px;border-radius:20px;font-weight:500;
+}
+.main-nav a:hover{background:var(--gold-soft);color:var(--brand);text-decoration:none}
+.header-tools{display:flex;align-items:center;gap:10px;flex:none}
+.search-box{display:flex;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:3px 3px 3px 12px}
+.search-box input{border:0;background:transparent;font-size:13.5px;width:150px;outline:none;color:var(--ink);font-family:inherit}
+.search-box input::placeholder{color:#9aa8b8}
+.search-box button{
+  border:0;background:var(--brand);color:#fff;border-radius:16px;
+  padding:5px 13px;font-size:13px;cursor:pointer;font-family:inherit;
+}
+.search-box button:hover{background:var(--brand-2)}
+.search-box button:focus-visible,input:focus-visible,.main-nav a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* 首屏 */
+.hero{
+  background:linear-gradient(160deg,#14294b 0%,#1c3b6e 45%,#27528c 100%);
+  color:#fff;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-120px;top:-120px;width:460px;height:460px;
+  border-radius:50%;background:radial-gradient(circle,rgba(224,166,60,.28),transparent 68%);
+}
+.hero-inner{
+  max-width:var(--maxw);margin:0 auto;padding:46px 18px 40px;
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:36px;align-items:center;position:relative;z-index:1;
+}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:1.5px;color:var(--gold);font-weight:600;margin-bottom:14px}
+.hero-kicker span{width:26px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-size:clamp(30px,4.4vw,46px);letter-spacing:1px;margin-bottom:16px;color:#fff}
+.hero-desc{font-size:15.5px;line-height:1.85;color:#cfdcf0;max-width:36em;margin-bottom:22px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:24px;
+  font-size:14.5px;font-weight:600;cursor:pointer;border:1px solid transparent;font-family:inherit;
+}
+.btn-primary{background:var(--gold);color:#1c2a40}
+.btn-primary:hover{background:#efb954;text-decoration:none}
+.btn-ghost{border-color:rgba(255,255,255,.45);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12);text-decoration:none}
+.hero-stats{display:flex;gap:26px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.16);padding-top:18px}
+.hero-stats div{font-size:12.5px;color:#a9bddb}
+.hero-stats b{display:block;font-size:22px;color:#fff;font-weight:700;letter-spacing:.5px}
+.hero-visual{position:relative;min-height:280px}
+.hero-visual svg{width:100%;height:auto;filter:drop-shadow(0 14px 30px rgba(0,0,0,.28))}
+
+/* 布局：三栏门户 */
+.layout{
+  max-width:var(--maxw);margin:0 auto;padding:26px 18px 10px;
+  display:grid;grid-template-columns:180px minmax(0,1fr) 250px;gap:24px;align-items:start;
+}
+.channel-rail{position:sticky;top:calc(var(--sticky-h) + 12px)}
+.rail-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:14px;margin-bottom:16px}
+.rail-title{font-size:12px;letter-spacing:1.6px;color:var(--muted);font-weight:700;margin-bottom:10px}
+.channel-list{list-style:none;margin:0;padding:0}
+.channel-list li{margin:0}
+.channel-list a{
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  font-size:14px;color:var(--ink-2);padding:7px 8px;border-radius:var(--radius-sm);font-weight:500;
+}
+.channel-list a:hover{background:var(--gold-soft);color:var(--brand);text-decoration:none}
+.channel-list .count{font-size:11px;color:var(--muted);font-weight:400}
+.rail-note{font-size:12.5px;color:var(--muted);line-height:1.7}
+.rail-note b{color:var(--brand);display:block;margin-bottom:4px;font-size:13px}
+
+.main-col{min-width:0}
+.side-col{min-width:0;position:sticky;top:calc(var(--sticky-h) + 12px)}
+
+/* 通用板块 */
+.block{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:22px;margin-bottom:22px}
+.block-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.block-head h2{font-size:20px;color:var(--ink);letter-spacing:.3px}
+.block-head h2::before{
+  content:"";display:inline-block;width:5px;height:17px;background:var(--gold);
+  border-radius:3px;margin-right:9px;vertical-align:-2px;
+}
+.block-lead{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+.sec-more{font-size:13px;color:var(--brand-2);font-weight:600;white-space:nowrap}
+
+/* 主题概览 */
+.overview p{color:var(--ink-2);font-size:15px}
+.overview .ov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.ov-item{background:var(--bg);border-radius:var(--radius-sm);padding:12px 14px}
+.ov-item b{display:block;color:var(--brand);font-size:14px;margin-bottom:3px}
+.ov-item span{font-size:12.8px;color:var(--muted);line-height:1.6;display:block}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.drama-card{
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;
+  display:flex;flex-direction:column;transition:box-shadow .18s,transform .18s;
+}
+.drama-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.drama-card .thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:#dfe6ef}
+.drama-card .thumb img{width:100%;height:100%;object-fit:cover}
+.badge{
+  position:absolute;left:9px;top:9px;background:rgba(28,59,110,.9);color:#fff;
+  font-size:11px;padding:2px 9px;border-radius:11px;letter-spacing:.5px;font-weight:600;
+}
+.badge.gold{background:rgba(224,166,60,.95);color:#26313f}
+.card-body{padding:12px 13px 14px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card-body h3{font-size:15.5px;color:var(--ink);letter-spacing:.2px}
+.card-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tag{font-size:11.5px;color:var(--brand-2);background:#eef3fa;border-radius:10px;padding:1px 8px;line-height:1.7}
+.tag.rose{color:var(--rose);background:var(--rose-soft)}
+.tag.teal{color:var(--teal);background:var(--teal-soft)}
+.tag.gold{color:#8a6417;background:var(--gold-soft)}
+.card-desc{font-size:13px;color:var(--ink-2);line-height:1.65;margin:0;flex:1}
+.card-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.card-meta .score{color:var(--gold);font-weight:700;font-size:13px}
+
+/* 最新更新 列表 */
+.update-list{list-style:none;margin:0;padding:0;counter-reset:upd}
+.update-list li{
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:baseline;
+  padding:9px 0;border-bottom:1px dashed var(--line);margin:0;
+}
+.update-list li:last-child{border-bottom:0}
+.update-list .u-name{font-weight:600;color:var(--ink);font-size:14.5px}
+.update-list .u-sum{color:var(--muted);font-size:13px;grid-column:2}
+.update-list .u-time{font-size:12px;color:#98a6b6;white-space:nowrap}
+.update-list .u-tag{font-size:11px;color:var(--rose);background:var(--rose-soft);border-radius:9px;padding:1px 7px;white-space:nowrap}
+
+/* 分类筛选 */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.filter-btn{
+  font-family:inherit;font-size:13.5px;padding:6px 15px;border-radius:18px;cursor:pointer;
+  border:1px solid var(--line);background:#fff;color:var(--ink-2);font-weight:500;
+}
+.filter-btn:hover{border-color:var(--brand-2);color:var(--brand)}
+.filter-btn.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+.filter-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat-card{
+  border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 13px;background:var(--bg);
+  display:flex;flex-direction:column;gap:4px;min-height:78px;
+}
+.cat-card b{font-size:14.5px;color:var(--brand)}
+.cat-card span{font-size:12.3px;color:var(--muted);line-height:1.55}
+.cat-card em{font-style:normal;font-size:11.5px;color:var(--gold);font-weight:600}
+.no-result{display:none;padding:18px;text-align:center;color:var(--muted);font-size:14px;background:var(--bg);border-radius:var(--radius-sm)}
+.no-result.show{display:block}
+
+/* 深度解析 */
+.deep h3{font-size:16.5px;color:var(--brand);margin:20px 0 8px;padding-left:10px;border-left:3px solid var(--gold)}
+.deep h3:first-of-type{margin-top:4px}
+.deep p{color:var(--ink-2);font-size:14.8px}
+.deep ul{padding-left:1.2em}
+.deep li{color:var(--ink-2);font-size:14.6px}
+.deep .callout{
+  background:var(--teal-soft);border-left:3px solid var(--teal);border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:12px 16px;font-size:14px;color:#1f5f5b;margin:14px 0;
+}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.compare>div{background:var(--bg);border-radius:var(--radius-sm);padding:12px 14px}
+.compare b{display:block;color:var(--brand);font-size:14px;margin-bottom:5px}
+.compare span{font-size:13px;color:var(--muted);line-height:1.7;display:block}
+
+/* 体验路径 */
+.steps{list-style:none;margin:0;padding:0;counter-reset:step}
+.steps li{
+  position:relative;padding:0 0 18px 46px;margin:0;border-left:2px dashed var(--line);margin-left:15px;
+}
+.steps li:last-child{border-left-color:transparent;padding-bottom:0}
+.steps li::before{
+  counter-increment:step;content:counter(step);
+  position:absolute;left:-16px;top:-2px;width:30px;height:30px;border-radius:50%;
+  background:var(--brand);color:#fff;font-size:14px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.steps b{display:block;font-size:15px;color:var(--ink);margin-bottom:3px}
+.steps p{font-size:13.6px;color:var(--muted);margin:0}
+
+/* FAQ */
+.faq details{border:1px solid var(--line);border-radius:var(--radius-sm);padding:0;margin-bottom:10px;background:#fff;overflow:hidden}
+.faq summary{
+  cursor:pointer;padding:12px 16px;font-size:14.5px;font-weight:600;color:var(--ink);
+  list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-size:19px;font-weight:700;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details[open] summary{background:var(--gold-soft)}
+.faq .ans{padding:10px 16px 14px;font-size:14px;color:var(--ink-2);line-height:1.8}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.comment{background:var(--bg);border-radius:var(--radius-sm);padding:11px 14px}
+.comment .c-top{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.avatar{width:24px;height:24px;border-radius:50%;background:var(--brand-2);color:#fff;font-size:11.5px;display:flex;align-items:center;justify-content:center;font-weight:700;flex:none}
+.comment .c-name{font-size:13px;font-weight:600;color:var(--brand)}
+.comment .c-time{font-size:11px;color:#9aa8b8;margin-left:auto}
+.comment p{font-size:13.2px;color:var(--ink-2);margin:0;line-height:1.7}
+
+/* 资讯 */
+.news-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.news-item{display:flex;gap:12px;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;background:#fff}
+.news-item img{width:112px;height:86px;object-fit:cover;flex:none}
+.news-item .n-body{padding:9px 11px 9px 0;min-width:0}
+.news-item h3{font-size:14px;color:var(--ink);margin-bottom:3px;line-height:1.45}
+.news-item .n-date{font-size:11.5px;color:var(--gold);font-weight:600;margin-bottom:2px;display:block}
+.news-item p{font-size:12.3px;color:var(--muted);margin:0;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* 相关推荐 标签索引 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:8px}
+.rec-tags a{
+  font-size:13px;color:var(--ink-2);background:var(--bg);border:1px solid var(--line);
+  border-radius:16px;padding:5px 14px;font-weight:500;
+}
+.rec-tags a:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--brand);text-decoration:none}
+
+/* 榜单 */
+.rank-list{list-style:none;margin:0;padding:0;counter-reset:rank}
+.rank-list li{
+  display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;align-items:center;
+  padding:9px 0;border-bottom:1px dashed var(--line);margin:0;
+}
+.rank-list li:last-child{border-bottom:0}
+.rank-list .rk{
+  width:24px;height:24px;border-radius:7px;background:var(--bg);color:var(--muted);
+  font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  counter-increment:rank;
+}
+.rank-list li:nth-child(1) .rk{background:var(--gold);color:#fff}
+.rank-list li:nth-child(2) .rk{background:#b8c4d4;color:#fff}
+.rank-list li:nth-child(3) .rk{background:#d6a97e;color:#fff}
+.rank-list .r-name{font-size:14px;font-weight:600;color:var(--ink)}
+.rank-list .r-sub{font-size:11.8px;color:var(--muted);display:block;font-weight:400}
+.rank-list .r-heat{font-size:12px;color:var(--rose);font-weight:600;white-space:nowrap}
+
+/* 侧栏 */
+.side-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:16px;margin-bottom:16px}
+.side-card h2{font-size:14.5px;color:var(--ink);margin-bottom:10px;letter-spacing:.5px}
+.side-card h2::before{content:"";display:inline-block;width:4px;height:13px;background:var(--rose);border-radius:2px;margin-right:7px;vertical-align:-1px}
+.hot-list{list-style:none;margin:0;padding:0;counter-reset:hot}
+.hot-list li{display:flex;gap:9px;align-items:baseline;padding:7px 0;border-bottom:1px dashed var(--line);margin:0;font-size:13.3px}
+.hot-list li:last-child{border-bottom:0}
+.hot-list .h-num{
+  flex:none;width:18px;height:18px;border-radius:5px;background:#eef3fa;color:var(--brand-2);
+  font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;counter-increment:hot;
+}
+.hot-list li:nth-child(-n+3) .h-num{background:var(--brand);color:#fff}
+.hot-list a{color:var(--ink-2);line-height:1.5}
+.hot-list a:hover{color:var(--brand);text-decoration:none}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{position:relative;padding:0 0 14px 16px;border-left:2px solid var(--line);margin:0}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-5px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.timeline .t-time{font-size:11.5px;color:var(--gold);font-weight:700;display:block}
+.timeline .t-text{font-size:12.8px;color:var(--ink-2);line-height:1.6}
+.side-cta{background:linear-gradient(150deg,var(--brand),var(--brand-2));color:#fff;border:0}
+.side-cta h2{color:#fff}
+.side-cta h2::before{background:var(--gold)}
+.side-cta p{font-size:12.8px;color:#cfdcf0;line-height:1.7}
+.side-cta .btn{width:100%;justify-content:center;margin-top:6px}
+
+/* 页尾 */
+.site-footer{background:#152844;color:#b9c8de;margin-top:26px;padding:38px 18px 20px}
+.footer-inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.footer-brand b{color:#fff;font-size:19px;letter-spacing:.5px;display:block;margin-bottom:8px}
+.footer-brand p{font-size:13px;line-height:1.75;color:#9db0cb;margin:0}
+.footer-col h3{font-size:13px;color:#fff;letter-spacing:1px;margin-bottom:10px;font-weight:600}
+.footer-col ul{list-style:none;margin:0;padding:0}
+.footer-col li{margin-bottom:6px}
+.footer-col a{font-size:13px;color:#9db0cb}
+.footer-col a:hover{color:var(--gold);text-decoration:none}
+.footer-bottom{
+  max-width:var(--maxw);margin:24px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);
+  font-size:12px;color:#7f93af;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+
+/* 响应式 */
+@media(max-width:1080px){
+  .layout{grid-template-columns:170px minmax(0,1fr);}
+  .side-col{grid-column:1/-1;position:static;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+  .side-card{margin-bottom:0}
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:860px){
+  .hero-inner{grid-template-columns:1fr;gap:20px}
+  .hero-visual{order:-1;max-width:420px;min-height:0}
+  .layout{grid-template-columns:1fr;padding-top:18px}
+  .channel-rail{position:static;order:-1}
+  .channel-rail .rail-card{margin-bottom:12px}
+  .channel-list{display:flex;flex-wrap:wrap;gap:6px}
+  .channel-list a{padding:5px 12px;background:var(--bg);border-radius:16px;font-size:13px}
+  .channel-list .count{display:none}
+  .side-col{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .news-list{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+}
+@media(max-width:740px){
+  :root{--sticky-h:96px}
+  .header-inner{gap:10px;padding:8px 14px}
+  .brand-text{font-size:18px}
+  .main-nav{order:3;flex-basis:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+  .main-nav a{white-space:nowrap;font-size:13px;padding:5px 9px}
+  .header-tools{flex:1;justify-content:flex-end}
+  .search-box input{width:110px}
+  .hero-inner{padding:30px 14px 28px}
+  .layout{padding:14px}
+  .block{padding:16px}
+  .card-grid{grid-template-columns:1fr}
+  .comments{grid-template-columns:1fr}
+  .overview .ov-grid{grid-template-columns:1fr}
+  .update-list li{grid-template-columns:minmax(0,1fr) auto;gap:4px 10px}
+  .update-list .u-sum{grid-column:1/-1}
+  .hero-stats{gap:18px}
+  .footer-inner{grid-template-columns:1fr;gap:20px}
+}
+@media(max-width:400px){
+  .cat-grid{grid-template-columns:1fr}
+  .hero-actions .btn{padding:9px 15px;font-size:13.5px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="notice-bar" role="complementary" aria-label="站点动态">
+    <span class="dot"></span>
+    <strong>11 月 8 日更新：</strong>
+    《月光下的告白》第 12 集上线
+    <span>·</span>
+    本周新增 14 条泰剧条目
+    <span>·</span>
+    <a href="/#latest">查看更新流 →</a>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/#top" aria-label="泰剧网 首页">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#1c3b6e"/>
+          <path d="M14 20h36v22H14z" fill="none" stroke="#e0a63c" stroke-width="2.6"/>
+          <path d="M14 20l18 13 18-13" fill="none" stroke="#e0a63c" stroke-width="2.6"/>
+          <circle cx="32" cy="46" r="2.6" fill="#e0a63c"/>
+        </svg>
+        <span class="brand-text">泰剧网<span class="brand-sub">THAI DRAMA HUB</span></span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#picks">精选条目</a>
+        <a href="/#latest">更新动态</a>
+        <a href="/#category">类型分类</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">追剧路径</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#news">相关资讯</a>
+      </nav>
+      <div class="header-tools">
+        <form class="search-box" role="search" id="siteSearch" onsubmit="return false;">
+          <input type="search" id="searchInput" placeholder="搜剧名或类型" aria-label="站内内容查找">
+          <button type="submit" id="searchBtn">查找</button>
+        </form>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero" aria-label="主题首屏">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-kicker"><span></span>泰国剧集 · 条目聚合与追剧参考</div>
+        <h1>泰剧网</h1>
+        <p class="hero-desc">汇集泰剧剧集条目、播出更新与类型分类，覆盖校园青春、同性情感、复仇虐恋、古装奇幻、悬疑惊悚五个主要方向，标注集数进度、类型标签与观众看点，帮助你在开追前判断一部剧的节奏与投入成本。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/#picks">查看精选条目</a>
+          <a class="btn btn-ghost" href="/#latest">今日更新 9 条</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>1,284</b>收录剧集条目</div>
+          <div><b>14</b>本周新增条目</div>
+          <div><b>5</b>主要类型方向</div>
+          <div><b>2026-11-08</b>数据更新日期</div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 420 300" role="img">
+          <defs>
+            <linearGradient id="screenG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2f5f9e"/>
+              <stop offset="1" stop-color="#16305a"/>
+            </linearGradient>
+            <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#e0a63c"/>
+              <stop offset="1" stop-color="#f2cd7d"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="34" width="320" height="200" rx="16" fill="url(#screenG)" stroke="#3d6ba8" stroke-width="1.5"/>
+          <rect x="18" y="34" width="320" height="200" rx="16" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+          <circle cx="88" cy="96" r="26" fill="url(#goldG)" opacity=".92"/>
+          <path d="M80 84l20 12-20 12z" fill="#16305a"/>
+          <rect x="132" y="76" width="150" height="9" rx="4.5" fill="rgba(255,255,255,.5)"/>
+          <rect x="132" y="96" width="110" height="8" rx="4" fill="rgba(255,255,255,.28)"/>
+          <rect x="132" y="114" width="170" height="8" rx="4" fill="rgba(255,255,255,.2)"/>
+          <rect x="40" y="150" width="88" height="58" rx="8" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)"/>
+          <rect x="140" y="150" width="88" height="58" rx="8" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)"/>
+          <rect x="240" y="150" width="80" height="58" rx="8" fill="rgba(224,166,60,.22)" stroke="rgba(224,166,60,.6)"/>
+          <path d="M52 168l22 12-22 12z" fill="rgba(255,255,255,.55)"/>
+          <path d="M152 168l22 12-22 12z" fill="rgba(255,255,255,.55)"/>
+          <rect x="252" y="166" width="56" height="7" rx="3.5" fill="rgba(224,166,60,.9)"/>
+          <rect x="252" y="180" width="40" height="6" rx="3" fill="rgba(224,166,60,.55)"/>
+          <rect x="252" y="192" width="48" height="6" rx="3" fill="rgba(224,166,60,.4)"/>
+          <rect x="18" y="250" width="320" height="14" rx="7" fill="rgba(255,255,255,.08)"/>
+          <rect x="18" y="250" width="212" height="14" rx="7" fill="url(#goldG)" opacity=".85"/>
+          <circle cx="360" cy="70" r="5" fill="#e0a63c" opacity=".8"/>
+          <circle cx="380" cy="120" r="3" fill="#e0a63c" opacity=".55"/>
+          <circle cx="352" cy="190" r="4" fill="#e0a63c" opacity=".4"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三栏门户 -->
+  <div class="layout">
+
+    <!-- 左频道栏 -->
+    <aside class="channel-rail" aria-label="频道索引">
+      <div class="rail-card">
+        <div class="rail-title">类型频道</div>
+        <ul class="channel-list">
+          <li><a href="/#category">校园青春 <span class="count">246</span></a></li>
+          <li><a href="/#category">同性情感 <span class="count">312</span></a></li>
+          <li><a href="/#category">复仇虐恋 <span class="count">198</span></a></li>
+          <li><a href="/#category">古装奇幻 <span class="count">164</span></a></li>
+          <li><a href="/#category">悬疑惊悚 <span class="count">137</span></a></li>
+          <li><a href="/#category">家庭伦理 <span class="count">121</span></a></li>
+          <li><a href="/#category">医疗职场 <span class="count">86</span></a></li>
+          <li><a href="/#category">喜剧轻喜 <span class="count">94</span></a></li>
+        </ul>
+      </div>
+      <div class="rail-card">
+        <div class="rail-title">追剧工具</div>
+        <ul class="channel-list">
+          <li><a href="/#latest">今日更新 <span class="count">9</span></a></li>
+          <li><a href="/#rank">热度榜单</a></li>
+          <li><a href="/#guide">开追路径</a></li>
+          <li><a href="/#faq">更新规则问答</a></li>
+        </ul>
+      </div>
+      <div class="rail-card">
+        <div class="rail-note">
+          <b>播出周期参考</b>
+          泰国主流频道剧多为每周 2 集，平台自制剧常见一次性放出全季或每周 1 集。
+        </div>
+      </div>
+    </aside>
+
+    <!-- 中主内容 -->
+    <div class="main-col">
+
+      <!-- 1 领域概览 -->
+      <section class="block overview" id="overview">
+        <div class="block-head"><h2>泰国剧集包含哪些方向</h2></div>
+        <p>泰国剧集在近十年形成了相对稳定的类型版图。校园青春剧以高中与大学校园为背景，节奏轻快、单集 45 分钟左右，是入门观众最常见的入口；同性情感题材在泰国本土制作中产量大、受众广，叙事重心常放在关系确认与家庭阻力上；复仇虐恋剧偏爱豪门家族设定，靠身份反转与情绪张力推进；古装奇幻则多取材本国历史与民间传说，服化道投入较高。</p>
+        <p>此外，悬疑惊悚、家庭伦理、医疗职场与轻喜剧四条线也在持续产出。悬疑类常以单一案件贯穿全剧，适合喜欢连续推理的观众；家庭伦理剧篇幅偏长，多在 30 集以上，人物关系复杂；医疗与职场剧强调专业场景，节奏接近职业剧；轻喜剧单集时长短，适合碎片时间观看。了解这些方向之间的差异，比单纯按热度排序更能找到符合自己口味的剧。</p>
+        <div class="ov-grid">
+          <div class="ov-item"><b>校园青春</b><span>单集约 45 分钟，全剧 12—16 集，节奏轻快，适合连续追完</span></div>
+          <div class="ov-item"><b>同性情感</b><span>产量大、更新稳定，重点看关系推进节奏与配角线完整度</span></div>
+          <div class="ov-item"><b>复仇虐恋</b><span>豪门设定为主，情绪张力强，注意中段是否拖沓</span></div>
+          <div class="ov-item"><b>古装奇幻</b><span>服化道与特效投入差异大，先看制作规格再决定</span></div>
+          <div class="ov-item"><b>悬疑惊悚</b><span>单案贯穿，适合一次性看完，注意结局完成度</span></div>
+          <div class="ov-item"><b>家庭伦理</b><span>篇幅长、人物多，适合长期跟进而非集中补完</span></div>
+        </div>
+      </section>
+
+      <!-- 2 精选条目 -->
+      <section class="block" id="picks">
+        <div class="block-head">
+          <h2>精选泰剧条目</h2>
+          <a class="sec-more" href="/#latest">按更新时间查看 →</a>
+        </div>
+        <p class="block-lead">按类型分布与近期讨论度挑选，覆盖校园、同性、复仇、古装与悬疑五个方向。</p>
+        <div class="card-grid" id="picksGrid">
+
+          <article class="drama-card" data-key="月光下的告白 校园青春 同性情感">
+            <div class="thumb">
+              <span class="badge">更新至 12 集</span>
+              <img src="https://picsum.photos/seed/taiju-yueguang12/400/300" width="400" height="300" loading="lazy" alt="月光下的告白校园剧封面">
+            </div>
+            <div class="card-body">
+              <h3>月光下的告白</h3>
+              <div class="card-tags"><span class="tag">校园青春</span><span class="tag rose">同性情感</span><span class="tag teal">双向暗恋</span></div>
+              <p class="card-desc">高三转学生在天文社遇到沉默的社长，两人从观测记录本开始逐步靠近。剧集把重点放在毕业前的选择上，节奏克制，配角线也写得完整。</p>
+              <div class="card-meta"><span>评分 8.6</span><span class="score">热度 9,240</span></div>
+            </div>
+          </article>
+
+          <article class="drama-card" data-key="曼谷雨季 复仇虐恋 豪门">
+            <div class="thumb">
+              <span class="badge gold">本周新剧</span>
+              <img src="https://picsum.photos/seed/taiju-mangu12/400/300" width="400" height="300" loading="lazy" alt="曼谷雨季豪门复仇剧封面">
+            </div>
+            <div class="card-body">
+              <h3>曼谷雨季</h3>
+              <div class="card-tags"><span class="tag">复仇虐恋</span><span class="tag rose">豪门家族</span><span class="tag gold">身份反转</span></div>
+              <p class="card-desc">私生女在家族企业危机中回到曼谷，用三年时间从底层职员做到决策层。前六集铺陈权力关系，第八集的反转是全剧转折点。</p>
+              <div class="card-meta"><span>评分 8.1</span><span class="score">热度 8,760</span></div>
+            </div>
+          </article>
+
+          <article class="drama-card" data-key="清迈旧信 古装奇幻 民间传说">
+            <div class="thumb">
+              <span class="badge">全 14 集</span>
+              <img src="https://picsum.photos/seed/taiju-qingmai14/400/300" width="400" height="300" loading="lazy" alt="清迈旧信古装奇幻剧封面">
+            </div>
+            <div class="card-body">
+              <h3>清迈旧信</h3>
+              <div class="card-tags"><span class="tag">古装奇幻</span><span class="tag teal">民间传说</span><span class="tag">双时空</span></div>
+              <p class="card-desc">现代修复师在旧宅发现一叠兰纳文书，由此展开两条时间线。服化道参考北部传统服饰，奇幻设定克制，重心仍在两代人的选择上。</p>
+              <div class="card-meta"><span>评分 8.4</span><span class="score">热度 7,980</span></div>
+            </div>
+          </article>
+
+          <article class="drama-card" data-key="第七码头 悬疑惊悚 单案">
+            <div class="thumb">
+              <span class="badge">更新至 8 集</span>
+              <img src="https://picsum.photos/seed/taiju-diqimatou08/400/300" width="400" height="300" loading="lazy" alt="第七码头悬疑剧封面">
+            </div>
+            <div class="card-body">
+              <h3>第七码头</h3>
+              <div class="card-tags"><span class="tag">悬疑惊悚</span><span class="tag rose">单案贯穿</span><span class="tag">港城背景</span></div>
+              <p class="card-desc">一名码头调度员在夜班记录里发现重复出现的货柜编号，追查后牵出十年前的旧案。全剧围绕一个案件推进，线索回收较为整齐。</p>
+              <div class="card-meta"><span>评分 8.3</span><span class="score">热度 9,050</span></div>
+            </div>
+          </article>
+
+          <article class="drama-card" data-key="湄南河之夏 同性情感 家庭阻力">
+            <div class="thumb">
+              <span class="badge">全 12 集</span>
+              <img src="https://picsum.photos/seed/taiju-meinan12/400/300" width="400" height="300" loading="lazy" alt="湄南河之夏情感剧封面">
+            </div>
+            <div class="card-body">
+              <h3>湄南河之夏</h3>
+              <div class="card-tags"><span class="tag rose">同性情感</span><span class="tag">家庭阻力</span><span class="tag teal">成年视角</span></div>
+              <p class="card-desc">两位三十岁的主角在老家重逢，一边处理各自的工作，一边面对父母的期待。剧本把冲突放在日常对话里，少有夸张桥段。</p>
+              <div class="card-meta"><span>评分 8.8</span><span class="score">热度 8,410</span></div>
+            </div>
+          </article>
+
+          <article class="drama-card" data-key="暹罗厨房 喜剧轻喜 美食">
+            <div class="thumb">
+              <span class="badge">更新至 6 集</span>
+              <img src="https://picsum.photos/seed/taiju-xianluo06/400/300" width="400" height="300" loading="lazy" alt="暹罗厨房美食轻喜剧封面">
+            </div>
+            <div class="card-body">
+              <h3>暹罗厨房</h3>
+              <div class="card-tags"><span class="tag">喜剧轻喜</span><span class="tag gold">美食</span><span class="tag">合租日常</span></div>
+              <p class="card-desc">四个年轻人在老城区合开一间小餐馆，每集围绕一道菜展开。单集 30 分钟，适合下班后放松观看，食物镜头拍得认真。</p>
+              <div class="card-meta"><span>评分 8.0</span><span class="score">热度 6,920</span></div>
+            </div>
+          </article>
+
+          <article class="drama-card" data-key="急诊夜班 医疗职场 专业剧">
+            <div class="thumb">
+              <span class="badge">更新至 10 集</span>
+              <img src="https://picsum.photos/seed/taiju-jizhen10/400/300" width="400" height="300" loading="lazy" alt="急诊夜班医疗剧封面">
+            </div>
+            <div class="card-body">
+              <h3>急诊夜班</h3>
+              <div class="card-tags"><span class="tag">医疗职场</span><span class="tag teal">专业场景</span><span class="tag">群像</span></div>
+              <p class="card-desc">以一家公立医院的夜班为切口，每两集处理一批病例。医疗流程细节较扎实，人物成长线与病例线交替推进。</p>
+              <div class="card-meta"><span>评分 8.5</span><span class="score">热度 7,630</span></div>
+            </div>
+          </article>
+
+          <article class="drama-card" data-key="金色牢笼 复仇虐恋 家族争斗">
+            <div class="thumb">
+              <span class="badge gold">结局周</span>
+              <img src="https://picsum.photos/seed/taiju-jinse18/400/300" width="400" height="300" loading="lazy" alt="金色牢笼家族剧封面">
+            </div>
+            <div class="card-body">
+              <h3>金色牢笼</h3>
+              <div class="card-tags"><span class="tag">复仇虐恋</span><span class="tag rose">家族争斗</span><span class="tag gold">群像</span></div>
+              <p class="card-desc">一场遗产分配引出三房人马的长期博弈。剧本把大量信息埋在细节对话中，二刷时能发现不少前后呼应。</p>
+              <div class="card-meta"><span>评分 8.2</span><span class="score">热度 8,140</span></div>
+            </div>
+          </article>
+
+          <article class="drama-card" data-key="雨季来信 校园青春 群像">
+            <div class="thumb">
+              <span class="badge">全 16 集</span>
+              <img src="https://picsum.photos/seed/taiju-yuji16/400/300" width="400" height="300" loading="lazy" alt="雨季来信校园群像剧封面">
+            </div>
+            <div class="card-body">
+              <h3>雨季来信</h3>
+              <div class="card-tags"><span class="tag">校园青春</span><span class="tag teal">群像</span><span class="tag">社团</span></div>
+              <p class="card-desc">一所清迈中学的广播社在雨季策划特别节目，四条人物线在十六集内收束。对白自然，校园细节贴近真实。</p>
+              <div class="card-meta"><span>评分 8.1</span><span class="score">热度 7,220</span></div>
+            </div>
+          </article>
+
+        </div>
+        <div class="no-result" id="noResult">没有找到匹配的条目，试试“校园”“悬疑”“同性”等类型词，或清空输入后重新查看。</div>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="block" id="latest">
+        <div class="block-head"><h2>最新更新与播出动态</h2><span class="sec-more">截至 11 月 8 日</span></div>
+        <ul class="update-list">
+          <li><span class="u-tag">新集</span><span class="u-name">月光下的告白</span><span class="u-time">今天 09:30</span><span class="u-sum">第 12 集上线，天文社毕业观测夜剧情收束，双向暗恋线正式确认。</span></li>
+          <li><span class="u-tag">新集</span><span class="u-name">第七码头</span><span class="u-time">今天 08:10</span><span class="u-sum">第 8 集上线，货柜编号线索指向十年前的调度记录。</span></li>
+          <li><span class="u-tag">定档</span><span class="u-name">曼谷雨季</span><span class="u-time">昨天 20:00</span><span class="u-sum">官方公布第 9 至 12 集播出时间，结局周安排在 11 月 22 日。</span></li>
+          <li><span class="u-tag">新集</span><span class="u-name">暹罗厨房</span><span class="u-time">昨天 19:20</span><span class="u-sum">第 6 集上线，主题是冬阴功，合租四人组第一次出现分工矛盾。</span></li>
+          <li><span class="u-tag">完结</span><span class="u-name">清迈旧信</span><span class="u-time">11 月 6 日</span><span class="u-sum">全 14 集完结，修复师线在旧宅文书里找到两代人的交汇点。</span></li>
+          <li><span class="u-tag">新集</span><span class="u-name">急诊夜班</span><span class="u-time">11 月 6 日</span><span class="u-sum">第 10 集上线，夜班遇到连环交通事故，群像线同时推进。</span></li>
+          <li><span class="u-tag">特辑</span><span class="u-name">湄南河之夏</span><span class="u-time">11 月 5 日</span><span class="u-sum">上线 22 分钟制作特辑，含两位主角与导演的对谈。</span></li>
+          <li><span class="u-tag">新剧</span><span class="u-name">金色牢笼</span><span class="u-time">11 月 4 日</span><span class="u-sum">进入结局周，遗产分配结果在第 18 集揭晓。</span></li>
+          <li><span class="u-tag">新集</span><span class="u-name">雨季来信</span><span class="u-time">11 月 3 日</span><span class="u-sum">全 16 集一次性上线，广播社特别节目成为四条线的收束点。</span></li>
+          <li><span class="u-tag">预告</span><span class="u-name">第七码头</span><span class="u-time">11 月 2 日</span><span class="u-sum">发布第 9 至 12 集预告，案件将转入法庭阶段。</span></li>
+          <li><span class="u-tag">新剧</span><span class="u-name">雨季来信</span><span class="u-time">11 月 1 日</span><span class="u-sum">公布主演阵容与首支预告，主打清迈校园群像。</span></li>
+          <li><span class="u-tag">重制</span><span class="u-name">清迈旧信</span><span class="u-time">10 月 30 日</span><span class="u-sum">上线 4K 修复版前 6 集，服化道细节更清晰。</span></li>
+        </ul>
+      </section>
+
+      <!-- 4 分类入口（含筛选） -->
+      <section class="block" id="category">
+        <div class="block-head"><h2>按类型找泰剧</h2><span class="sec-more">8 个主要分类</span></div>
+        <p class="block-lead">点击分类可筛选上方精选条目，再次点击取消筛选。</p>
+        <div class="filter-bar" role="group" aria-label="类型筛选">
+          <button class="filter-btn active" data-filter="all" type="button">全部</button>
+          <button class="filter-btn" data-filter="校园青春" type="button">校园青春</button>
+          <button class="filter-btn" data-filter="同性情感" type="button">同性情感</button>
+          <button class="filter-btn" data-filter="复仇虐恋" type="button">复仇虐恋</button>
+          <button class="filter-btn" data-filter="古装奇幻" type="button">古装奇幻</button>
+          <button class="filter-btn" data-filter="悬疑惊悚" type="button">悬疑惊悚</button>
+          <button class="filter-btn" data-filter="家庭伦理" type="button">家庭伦理</button>
+          <button class="filter-btn" data-filter="医疗职场" type="button">医疗职场</button>
+          <button class="filter-btn" data-filter="喜剧轻喜" type="button">喜剧轻喜</button>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-card" href="/#picks"><b>校园青春</b><span>高中与大学背景，单集 45 分钟，节奏轻快</span><em>246 部</em></a>
+          <a class="cat-card" href="/#picks"><b>同性情感</b><span>关系确认与家庭阻力是常见主线</span><em>312 部</em></a>
+          <a class="cat-card" href="/#picks"><b>复仇虐恋</b><span>豪门设定、身份反转、情绪张力强</span><em>198 部</em></a>
+          <a class="cat-card" href="/#picks"><b>古装奇幻</b><span>取材本地历史与传说，制作规格差异大</span><em>164 部</em></a>
+          <a class="cat-card" href="/#picks"><b>悬疑惊悚</b><span>单案贯穿全剧，适合集中观看</span><em>137 部</em></a>
+          <a class="cat-card" href="/#picks"><b>家庭伦理</b><span>篇幅偏长，人物关系复杂</span><em>121 部</em></a>
+          <a class="cat-card" href="/#picks"><b>医疗职场</b><span>专业场景扎实，群像推进</span><em>86 部</em></a>
+          <a class="cat-card" href="/#picks"><b>喜剧轻喜</b><span>单集 30 分钟内，适合碎片时间</span><em>94 部</em></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="block deep" id="deep">
+        <div class="block-head"><h2>泰剧类型差异与选择判断</h2></div>
+        <p>同样是泰剧，校园青春剧和复仇虐恋剧在叙事结构、单集时长和情绪节奏上差别很大。先弄清这些差异，再决定投入哪一部，比按热度直接开追更省时间。</p>
+
+        <h3>单集时长与全剧篇幅的关系</h3>
+        <p>泰国免费频道的剧集通常单集 45 至 60 分钟，全剧 12 至 16 集，周更两集；平台自制剧则常见单集 40 分钟上下、全季 8 至 12 集，部分作品一次性放出全季。篇幅直接决定追剧成本：16 集的校园剧按每周两集计算需要约两个月，而一次性放出的 8 集剧集可以在两个晚上看完。</p>
+        <ul>
+          <li>周更剧：适合跟随讨论节奏，但需要长期保持注意力。</li>
+          <li>全季放出：适合集中补完，注意前两集的世界观铺设是否清楚。</li>
+          <li>长篇幅家庭伦理剧：多在 30 集以上，适合长期跟进而非短期刷完。</li>
+        </ul>
+
+        <h3>同性情感题材的叙事重心</h3>
+        <p>泰国同性情感剧产量大，但内部差异明显。一类把重心放在关系确认之前，靠日常互动和误会推进；另一类直接从成年视角切入，冲突来自家庭期待与职业选择。前者节奏轻、门槛低，后者对演员表演和剧本要求更高。判断一部剧属于哪一类，看前两集主角的年龄设定和是否出现父母角色即可大致区分。</p>
+        <div class="callout">如果只想看轻松向作品，优先选择校园背景、单集 45 分钟以内、配角线完整的条目；如果更在意人物弧光，成年视角的作品通常更耐看。</div>
+
+        <h3>复仇虐恋剧的节奏陷阱</h3>
+        <p>豪门复仇剧的常见问题是中段拖沓：前六集铺设权力关系，第七至十集容易出现反复拉扯。判断一部剧是否值得继续，可以看第八集前后是否有明确的目标推进——主角是否拿到关键证据、是否完成一次身份转换。若到第十集仍在重复同类冲突，后续大概率靠情绪而非情节支撑。</p>
+        <div class="compare">
+          <div><b>值得继续追</b><span>每两集有一次实质进展，配角动机清楚，反转有前期铺垫。</span></div>
+          <div><b>建议暂停</b><span>连续三集围绕同一误会打转，新角色不断加入但不推进主线。</span></div>
+        </div>
+
+        <h3>古装奇幻的制作规格判断</h3>
+        <p>古装奇幻剧的观感差异主要来自制作规格。看预告时重点关注三点：外景比例、服化道是否统一、特效是否服务于叙事。外景比例高的作品通常投入更大；服化道统一能减少出戏感；特效如果只用于点缀而非撑起关键情节，说明剧本本身有内容支撑。</p>
+        <ul>
+          <li>历史向：参考真实朝代与地方服饰，适合喜欢考据的观众。</li>
+          <li>传说向：取材民间故事，奇幻设定较多，注意世界观是否自洽。</li>
+          <li>双时空：现代线与古代线交替，重点看两条线是否有实质关联。</li>
+        </ul>
+
+        <h3>悬疑剧的结局完成度</h3>
+        <p>单案贯穿的悬疑剧最怕结局收不住。开追前可以先确认全剧集数与案件数量：12 集对应一个案件通常节奏合适，8 集以内则要求线索密度高。若一部剧在中段不断加入新嫌疑人却没有回收旧线索，结局往往仓促。已经完结的作品可以先看结局讨论再决定是否补完。</p>
+      </section>
+
+      <!-- 6 体验路径 -->
+      <section class="block" id="guide">
+        <div class="block-head"><h2>第一次追泰剧的顺序建议</h2></div>
+        <p class="block-lead">按投入时间和判断依据排列，从低门槛类型逐步过渡到长篇幅作品。</p>
+        <ol class="steps">
+          <li><b>先看一部 12 集以内的校园青春剧</b><p>单集 45 分钟、节奏轻快，用来熟悉泰剧的表演风格与对白节奏，成本最低。</p></li>
+          <li><b>再选一部成年视角的同性情感剧</b><p>对比关系推进方式与家庭戏比重，判断自己更偏好轻喜还是写实路线。</p></li>
+          <li><b>尝试一部完结的悬疑剧</b><p>优先选已完结作品，确认结局完成度后再看，避免追到一半发现收线仓促。</p></li>
+          <li><b>进入复仇虐恋或古装奇幻</b><p>这两类对制作规格和剧本密度要求更高，放在有一定观剧经验之后更容易判断优劣。</p></li>
+          <li><b>最后考虑 30 集以上的家庭伦理剧</b><p>篇幅长、人物多，适合已经形成固定追剧习惯后再投入。</p></li>
+        </ol>
+        <p style="margin-top:14px">判断一部剧是否值得投入时间，可以看三个信号：前两集是否建立清楚的人物目标、第四集前后是否有第一次实质转折、配角是否有独立动机而非只服务主角。三个信号都满足的作品，通常不会在中段失速。</p>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="block faq" id="faq">
+        <div class="block-head"><h2>泰剧常见问题</h2></div>
+        <details>
+          <summary>泰剧一般多久更新一集？</summary>
+          <div class="ans">泰国免费频道剧多为每周更新 2 集，分别安排在周中与周末；平台自制剧常见每周 1 集，也有一次性放出全季的情况。具体以条目页标注的更新节奏为准，周更剧的全剧周期通常在两个月左右。</div>
+        </details>
+        <details>
+          <summary>校园青春泰剧和同性情感泰剧有什么区别？</summary>
+          <div class="ans">校园青春剧以学校和社团为背景，主线多为成长与友情，情感线是其中一部分；同性情感剧则以两人关系为核心，冲突常来自家庭期待与社会压力。两者有重叠作品，判断时看主线是否围绕关系确认展开即可。</div>
+        </details>
+        <details>
+          <summary>第一次看泰剧，从哪一部开始比较合适？</summary>
+          <div class="ans">建议从 12 集以内、单集 45 分钟的校园青春剧入手，例如《月光下的告白》或《雨季来信》。这类作品节奏轻、人物关系清楚，适合熟悉泰剧的对白风格和表演方式后再扩展到其他类型。</div>
+        </details>
+        <details>
+          <summary>复仇虐恋泰剧通常怎么判断好不好看？</summary>
+          <div class="ans">重点看第八集前后是否有实质进展：主角是否拿到关键证据、是否完成一次身份转换、配角动机是否清楚。若连续三集围绕同一误会打转且不断加入新角色却不推进主线，后续大概率靠情绪支撑，可以酌情放弃。</div>
+        </details>
+        <details>
+          <summary>泰剧的集数和单集时长一般是多少？</summary>
+          <div class="ans">免费频道剧多为 12 至 16 集，单集 45 至 60 分钟；平台自制剧常见 8 至 12 集，单集 40 分钟左右；家庭伦理类长剧可达 30 集以上。集数与时长直接影响追剧周期，选择时可以先按每周可投入的时间反推。</div>
+        </details>
+        <details>
+          <summary>古装奇幻泰剧的特效水平差别大吗？</summary>
+          <div class="ans">差别明显。外景比例高、服化道统一的作品通常投入更大；特效多用于点缀而非撑起关键情节的作品，往往剧本本身更扎实。看预告时可以重点观察外景比例和特效出现的位置，再决定是否开追。</div>
+        </details>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="block" id="comments">
+        <div class="block-head"><h2>观众在讨论什么</h2><span class="sec-more">16 条</span></div>
+        <div class="comments">
+          <div class="comment"><div class="c-top"><span class="avatar">柠</span><span class="c-name">柠檬汽水七分糖</span><span class="c-time">今天 10:12</span></div><p>《月光下的告白》第 12 集观测夜那段拍得很克制，没有强行煽情，反而更打动人。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">阿</span><span class="c-name">阿南不看结局</span><span class="c-time">今天 09:48</span></div><p>《第七码头》前八集线索铺得挺密，希望后面法庭阶段别崩，单案剧最怕收不住。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">曼</span><span class="c-name">曼谷小火车</span><span class="c-time">今天 08:55</span></div><p>《曼谷雨季》第八集反转确实没想到，但前面六集节奏偏慢，需要点耐心。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">清</span><span class="c-name">清迈的雨</span><span class="c-time">昨天 22:30</span></div><p>《清迈旧信》服化道很用心，北部传统服饰的细节比同类剧讲究，双时空也没有乱。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">湄</span><span class="c-name">湄南河晚风</span><span class="c-time">昨天 21:10</span></div><p>《湄南河之夏》两位主角的对话写得很日常，没有刻意制造误会，成年视角看着舒服。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">冬</span><span class="c-name">冬阴功加辣</span><span class="c-time">昨天 20:26</span></div><p>《暹罗厨房》每集一道菜，下班看刚好，第六集的分工矛盾写得挺真实。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">急</span><span class="c-name">急诊科常客</span><span class="c-time">11 月 7 日</span></div><p>《急诊夜班》医疗流程细节比想象中扎实，病例线和人物线交替推进不显乱。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">金</span><span class="c-name">金色牢笼观众</span><span class="c-time">11 月 7 日</span></div><p>《金色牢笼》二刷能发现不少前后呼应，第一集的一句台词到第十五集才有回应。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">雨</span><span class="c-name">雨季来信读者</span><span class="c-time">11 月 6 日</span></div><p>《雨季来信》四条线收得都算完整，广播社特别节目那段很有校园感。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">泰</span><span class="c-name">泰剧入门三个月</span><span class="c-time">11 月 6 日</span></div><p>作为新人，校园青春剧确实好入门，不过看了几部发现套路也挺像，想试试悬疑类。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">北</span><span class="c-name">北部山区信号</span><span class="c-time">11 月 5 日</span></div><p>《清迈旧信》4K 修复版前六集画面提升明显，旧宅文书的字都能看清了。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">剧</span><span class="c-name">剧集表整理员</span><span class="c-time">11 月 5 日</span></div><p>《曼谷雨季》定档到结局周了，周更两集的节奏对上班族来说还算友好。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">同</span><span class="c-name">同好小林</span><span class="c-time">11 月 4 日</span></div><p>同性情感剧里家庭戏比重差别真的很大，成年视角的作品更能看出演员功力。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">追</span><span class="c-name">追剧不熬夜</span><span class="c-time">11 月 3 日</span></div><p>《第七码头》我打算等完结再补，单案剧追更太难受，容易忘线索。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">小</span><span class="c-name">小城看剧人</span><span class="c-time">11 月 2 日</span></div><p>《金色牢笼》结局周了，希望遗产分配别草率收尾，前面铺了那么多线。</p></div>
+          <div class="comment"><div class="c-top"><span class="avatar">笑</span><span class="c-name">笑点很低的人</span><span class="c-time">11 月 1 日</span></div><p>《暹罗厨房》属于那种不用动脑的下饭剧，食物镜头确实拍得认真。</p></div>
+        </div>
+      </section>
+
+      <!-- 9 相关资讯 -->
+      <section class="block" id="news">
+        <div class="block-head"><h2>相关资讯</h2><span class="sec-more">2026 年 10 月至 11 月</span></div>
+        <ul class="news-list">
+          <li class="news-item">
+            <img src="https://picsum.photos/seed/taiju-news-yueguang/600/400" width="600" height="400" loading="lazy" alt="月光下的告白结局周相关资讯配图">
+            <div class="n-body"><span class="n-date">2026-11-08</span><h3>《月光下的告白》进入结局周，第 12 至 14 集排期公布</h3><p>平台公布最后三集上线时间，毕业选择成为全剧收束点。</p></div>
+          </li>
+          <li class="news-item">
+            <img src="https://picsum.photos/seed/taiju-news-qingmai/600/400" width="600" height="400" loading="lazy" alt="清迈旧信4K修复版资讯配图">
+            <div class="n-body"><span class="n-date">2026-11-06</span><h3>《清迈旧信》4K 修复版上线前六集，服化道细节更清晰</h3><p>修复版保留原声轨，旧宅文书场景的字迹可辨识度明显提升。</p></div>
+          </li>
+          <li class="news-item">
+            <img src="https://picsum.photos/seed/taiju-news-mangu/600/400" width="600" height="400" loading="lazy" alt="曼谷雨季定档资讯配图">
+            <div class="n-body"><span class="n-date">2026-11-04</span><h3>《曼谷雨季》公布第 9 至 12 集播出时间，结局周定档 11 月 22 日</h3><p>第八集反转后，剧情将转入企业决策层博弈。</p></div>
+          </li>
+          <li class="news-item">
+            <img src="https://picsum.photos/seed/taiju-news-diqimatou/600/400" width="600" height="400" loading="lazy" alt="第七码头法庭阶段资讯配图">
+            <div class="n-body"><span class="n-date">2026-11-02</span><h3>《第七码头》发布第 9 至 12 集预告，案件转入法庭阶段</h3><p>预告显示主角将以调度记录作为关键证据出庭。</p></div>
+          </li>
+          <li class="news-item">
+            <img src="https://picsum.photos/seed/taiju-news-yuji/600/400" width="600" height="400" loading="lazy" alt="雨季来信群像资讯配图">
+            <div class="n-body"><span class="n-date">2026-10-30</span><h3>《雨季来信》一次性放出全 16 集，主打清迈校园群像</h3><p>四条人物线在广播社特别节目中收束，单集 42 分钟。</p></div>
+          </li>
+          <li class="news-item">
+            <img src="https://picsum.photos/seed/taiju-news-jinse/600/400" width="600" height="400" loading="lazy" alt="金色牢笼结局周资讯配图">
+            <div class="n-body"><span class="n-date">2026-10-28</span><h3>《金色牢笼》进入结局周，遗产分配结果将在第 18 集揭晓</h3><p>制作方透露最后两集有两次时间跳跃，用于交代人物后续。</p></div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 10 相关推荐 -->
+      <section class="block" id="related">
+        <div class="block-head"><h2>延伸方向与相关条目</h2></div>
+        <p class="block-lead">按题材延伸、制作方向与观看场景整理，便于继续找同类作品。</p>
+        <div class="rec-tags">
+          <a href="/#picks">清迈背景剧</a>
+          <a href="/#picks">曼谷豪门题材</a>
+          <a href="/#picks">双向暗恋校园剧</a>
+          <a href="/#picks">成年视角同性情感</a>
+          <a href="/#picks">单案贯穿悬疑</a>
+          <a href="/#picks">美食下饭剧</a>
+          <a href="/#picks">医疗群像剧</a>
+          <a href="/#picks">双时空古装</a>
+          <a href="/#picks">4K 修复版老剧</a>
+          <a href="/#picks">周更两集节奏</a>
+          <a href="/#picks">全季一次放出</a>
+          <a href="/#picks">16 集完结作品</a>
+        </div>
+      </section>
+
+      <!-- 11 榜单 -->
+      <section class="block" id="rank">
+        <div class="block-head"><h2>本周热度榜单</h2><span class="sec-more">统计截至 11 月 8 日 09:00</span></div>
+        <ol class="rank-list">
+          <li><span class="rk"></span><span><span class="r-name">月光下的告白</span><span class="r-sub">校园青春 · 更新至 12 集</span></span><span class="r-heat">9,240</span></li>
+          <li><span class="rk"></span><span><span class="r-name">第七码头</span><span class="r-sub">悬疑惊悚 · 更新至 8 集</span></span><span class="r-heat">9,050</span></li>
+          <li><span class="rk"></span><span><span class="r-name">湄南河之夏</span><span class="r-sub">同性情感 · 全 12 集</span></span><span class="r-heat">8,410</span></li>
+          <li><span class="rk"></span><span><span class="r-name">曼谷雨季</span><span class="r-sub">复仇虐恋 · 本周新剧</span></span><span class="r-heat">8,760</span></li>
+          <li><span class="rk"></span><span><span class="r-name">急诊夜班</span><span class="r-sub">医疗职场 · 更新至 10 集</span></span><span class="r-heat">7,630</span></li>
+          <li><span class="rk"></span><span><span class="r-name">清迈旧信</span><span class="r-sub">古装奇幻 · 全 14 集</span></span><span class="r-heat">7,980</span></li>
+          <li><span class="rk"></span><span><span class="r-name">雨季来信</span><span class="r-sub">校园青春 · 全 16 集</span></span><span class="r-heat">7,220</span></li>
+          <li><span class="rk"></span><span><span class="r-name">金色牢笼</span><span class="r-sub">复仇虐恋 · 结局周</span></span><span class="r-heat">8,140</span></li>
+        </ol>
+      </section>
+
+    </div>
+
+    <!-- 右辅助栏 -->
+    <aside class="side-col" aria-label="辅助信息">
+      <div class="side-card">
+        <h2>今日热追</h2>
+        <ol class="hot-list">
+          <li><span class="h-num"></span><a href="/#picks">月光下的告白 第 12 集</a></li>
+          <li><span class="h-num"></span><a href="/#picks">第七码头 第 8 集</a></li>
+          <li><span class="h-num"></span><a href="/#picks">曼谷雨季 定档结局周</a></li>
+          <li><span class="h-num"></span><a href="/#picks">湄南河之夏 制作特辑</a></li>
+          <li><span class="h-num"></span><a href="/#picks">急诊夜班 第 10 集</a></li>
+          <li><span class="h-num"></span><a href="/#picks">清迈旧信 4K 修复版</a></li>
+          <li><span class="h-num"></span><a href="/#picks">金色牢笼 第 18 集</a></li>
+          <li><span class="h-num"></span><a href="/#picks">暹罗厨房 第 6 集</a></li>
+        </ol>
+      </div>
+
+      <div class="side-card">
+        <h2>近期更新节点</h2>
+        <ul class="timeline">
+          <li><span class="t-time">11 月 8 日</span><span class="t-text">《月光下的告白》第 12 集、《第七码头》第 8 集上线</span></li>
+          <li><span class="t-time">11 月 7 日</span><span class="t-text">《暹罗厨房》第 6 集上线，合租线出现分工矛盾</span></li>
+          <li><span class="t-time">11 月 6 日</span><span class="t-text">《清迈旧信》全 14 集完结，《急诊夜班》第 10 集上线</span></li>
+          <li><span class="t-time">11 月 5 日</span><span class="t-text">《湄南河之夏》22 分钟制作特辑上线</span></li>
+          <li><span class="t-time">11 月 4 日</span><span class="t-text">《曼谷雨季》公布结局周排期</span></li>
+          <li><span class="t-time">11 月 3 日</span><span class="t-text">《雨季来信》全 16 集一次性上线</span></li>
+        </ul>
+      </div>
+
+      <div class="side-card side-cta">
+        <h2>按更新节奏筛剧</h2>
+        <p>想跟着周更讨论，还是想一次看完？先确定每周可投入的时间，再选对应更新方式的条目。</p>
+        <a class="btn btn-primary" href="/#guide">查看追剧路径</a>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <b>泰剧网</b>
+      <p>聚合泰国剧集条目、播出更新与类型分类，覆盖校园青春、同性情感、复仇虐恋、古装奇幻与悬疑惊悚五个主要方向。</p>
+    </div>
+    <div class="footer-col">
+      <h3>类型频道</h3>
+      <ul>
+        <li><a href="/#category">校园青春</a></li>
+        <li><a href="/#category">同性情感</a></li>
+        <li><a href="/#category">复仇虐恋</a></li>
+        <li><a href="/#category">古装奇幻</a></li>
+        <li><a href="/#category">悬疑惊悚</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>追剧参考</h3>
+      <ul>
+        <li><a href="/#picks">精选条目</a></li>
+        <li><a href="/#latest">更新动态</a></li>
+        <li><a href="/#deep">类型差异解析</a></li>
+        <li><a href="/#guide">开追路径</a></li>
+        <li><a href="/#faq">常见问答</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>社区与榜单</h3>
+      <ul>
+        <li><a href="/#rank">本周热度榜单</a></li>
+        <li><a href="/#comments">观众讨论</a></li>
+        <li><a href="/#news">相关资讯</a></li>
+        <li><a href="/#related">延伸方向</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 泰剧网 · 内容聚合示例站点</span>
+    <span>部分内容为示例数据，仅用于展示页面结构</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('searchInput');
+  var btn = document.getElementById('searchBtn');
+  var grid = document.getElementById('picksGrid');
+  var noResult = document.getElementById('noResult');
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var cards = grid ? Array.prototype.slice.call(grid.querySelectorAll('.drama-card')) : [];
+  var activeFilter = 'all';
+
+  function apply(){
+    var q = (input && input.value ? input.value : '').trim().toLowerCase();
+    var visible = 0;
+    cards.forEach(function(card){
+      var key = (card.getAttribute('data-key') || '').toLowerCase();
+      var text = card.textContent.toLowerCase();
+      var okFilter = activeFilter === 'all' || key.indexOf(activeFilter.toLowerCase()) !== -1;
+      var okSearch = !q || key.indexOf(q) !== -1 || text.indexOf(q) !== -1;
+      var show = okFilter && okSearch;
+      card.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    if(noResult){ noResult.classList.toggle('show', visible === 0); }
+  }
+
+  if(btn){ btn.addEventListener('click', apply); }
+  if(input){
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); apply(); } });
+  }
+
+  filterBtns.forEach(function(b){
+    b.addEventListener('click', function(){
+      filterBtns.forEach(function(x){ x.classList.remove('active'); });
+      b.classList.add('active');
+      activeFilter = b.getAttribute('data-filter') || 'all';
+      apply();
+      var picks = document.getElementById('picks');
+      if(picks){ picks.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+})();
+</script>
+
+</body>
+  </html>
